@@ -3,15 +3,17 @@
 test
 </title>
 <body>
-<h1>
+<p>
 猜猜你的ua是什么<p>
 <?php echo $_SERVER['HTTP_USER_AGENT']; ?>
+<hr>
 
 <p>常量练习 <br>
 打印常量 lalala:
 <?php define("lalala","常量练习1");
 echo lalala; ?>
 
+<hr>
 
 <p>数组练习 <br>
 打印数组 lols:<br>
@@ -31,13 +33,29 @@ echo "key=".$x."			value=",$x_value,"<br>";
 
 
 
-}?>
+}?><hr>
+
 <p>
 超全局变量练习
+<?php
+echo $_SERVER['PHP_SELF'],"<br>",$_SERVER['SERVER_NAME'],"<br>",$_SERVER['REMOTE_ADDR'],"<br>";
+echo $_SERVER['REMOTE_ADDR'];
+
+?><hr>
 
 </p>
-
-<php? >
+<pre>
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+post练习 <input type="text" name="fname">
+<input type="submit">
+</form>
+<?php 
+if(isset($_REQUEST['fname'])){
+$name = $_REQUEST['fname']; 
+echo $name; 
+}
+?>
 </p>
-</h1></body>
+<hr>
+</p></body>
 </html>
